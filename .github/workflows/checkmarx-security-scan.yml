@@ -1,6 +1,6 @@
 name: Checkmarx 
 on:
-  workflow_dispatch:
+  workflow_dispatch: 
 
 jobs:
   checkmarx-scan:
