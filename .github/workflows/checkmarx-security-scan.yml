@@ -15,9 +15,9 @@ jobs:
         uses: Checkmarx/ast-github-action@2.3.47
         with:
           project_name: 'cx-devsecops/vuln-php-project01'
-          cx_tenant: ${{ secrets.CX_TENANT }}
-          base_uri: ${{ secrets.CX_BASE_URI }}
-          cx_client_id: ${{ secrets.CX_CLIENT_ID }}
-          cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
+          cx_tenant: 'ferreiralucas-sedemo'
+          base_uri: 'https://us.ast.checkmarx.net'
+          cx_client_id: 'github-actions-client'
+          cx_client_secret: 'JQIhcqTFiIgp7fcAL9l14RsA2syxPR7rKP8rpR36Y8QYxIPJSP0ZtREbWHcd725Y6J71CaFzG8sCJB2PLxqvXy'
           branch: ${{ github.ref }}
           scan_params: '--scan-types sast --sast-incremental=false' 
