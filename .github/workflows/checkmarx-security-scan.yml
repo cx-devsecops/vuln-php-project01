@@ -1,6 +1,15 @@
 name: Checkmarx 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        type: choice
+        options:
+          - staging
+          - production
+        required: true
+        default: 'staging'
 
 jobs:
   checkmarx-scan:
