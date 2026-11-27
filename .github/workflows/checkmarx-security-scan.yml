@@ -1,0 +1,23 @@
+name: Checkmarx 
+on:
+  push:
+    branches: [net-new-vulns]
+  workflow_dispatch:
+
+jobs:
+  checkmarx-scan:
+    runs-on: ubuntu-latest  
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Checkmarx AST Github Action
+        uses: Checkmarx/ast-github-action@2.3.47
+        with:
+          project_name: 'cx-devsecops/vuln-php-project01'
+          cx_tenant: ${{ secrets.CX_TENANT }}
+          base_uri: ${{ secrets.CX_BASE_URI }}
+          cx_client_id: ${{ secrets.CX_CLIENT_ID }}
+          cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
+          branch: ${{ github.ref }}
+          scan_params: '--scan-types sast--sast-incremental=false'
