@@ -1,5 +1,7 @@
 name: Checkmarx 
 on:
+  push:
+    branches: [net-new-vulns]
   workflow_dispatch:
 
 jobs:
